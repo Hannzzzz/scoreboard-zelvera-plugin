@@ -105,7 +105,7 @@ public class StatsMenuListener implements Listener {
                 statsMenu.setItem(10, killsItem);
 
                 // Deaths item
-                ItemStack deathsItem = new ItemStack(Material.SKELETON_SKULL);
+                ItemStack deathsItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 0);
                 ItemMeta deathsMeta = deathsItem.getItemMeta();
                 deathsMeta.setDisplayName("§4§lDeaths");
                 deathsMeta.setLore(Arrays.asList(
@@ -153,7 +153,7 @@ public class StatsMenuListener implements Listener {
                 statsMenu.setItem(15, lossesItem);
 
                 // Win Rate
-                ItemStack winRateItem = new ItemStack(Material.EXPERIENCE_BOTTLE);
+                ItemStack winRateItem = new ItemStack(Material.EXP_BOTTLE);
                 ItemMeta winRateMeta = winRateItem.getItemMeta();
                 winRateMeta.setDisplayName("§a§lWin Rate");
                 winRateMeta.setLore(Arrays.asList(

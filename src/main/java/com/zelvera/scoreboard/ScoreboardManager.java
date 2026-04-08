@@ -35,7 +35,7 @@ public class ScoreboardManager {
         playerScoreboards.put(uuid, scoreboard);
     }
 
-    private void setDefaultScoreboard(Player player) {
+    public void setDefaultScoreboard(Player player) {
         Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
         Objective objective = scoreboard.registerNewObjective("default", "dummy");
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
@@ -71,5 +71,13 @@ public class ScoreboardManager {
 
     public org.bukkit.scoreboard.Scoreboard getPlayerScoreboard(UUID uuid) {
         return playerScoreboards.get(uuid);
+    }
+
+    public void cleanup() {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            removeScoreboard(player);
+        }
+        playerScoreboards.clear();
+        playerTaskIds.clear();
     }
 }
