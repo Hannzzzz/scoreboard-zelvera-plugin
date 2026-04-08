@@ -1,0 +1,24 @@
+name: ScoreboardZelvera
+version: 1.0.0
+main: com.zelvera.scoreboard.ScoreboardPlugin
+description: A scoreboard plugin for BridgeFight games
+author: Zelvera
+api-version: 1.13
+
+commands:
+  scoreboard:
+    description: Manage scoreboard settings
+    usage: /scoreboard <reload|toggle>
+    permission: scoreboard.admin
+  leaderboard:
+    description: View BridgeFight leaderboards
+    usage: /leaderboard <type> [limit]
+    permission: scoreboard.leaderboard
+
+permissions:
+  scoreboard.admin:
+    description: Allows admin commands for scoreboard
+    default: op
+  scoreboard.leaderboard:
+    description: Allows viewing leaderboards
+    default: true
