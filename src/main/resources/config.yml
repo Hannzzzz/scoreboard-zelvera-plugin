@@ -1,0 +1,24 @@
+scoreboard:
+  enabled: true
+
+  title: "&b&lZELVERA"
+
+  update-interval: 2  # Update interval in seconds
+
+  settings:
+    use-placeholderapi: false # Set to true if you want to use PlaceholderAPI placeholders
+    per-world: false # Set to true if you want to have different scoreboards for each world
+
+  lines:
+    - "&7&m----------------"
+    - "&fPlayer: &b%player%"
+    - "&fMode: &aBridgeFight"
+    - ""
+    - "&fMap: &e%map%"
+    - "&fPlayers: &b%players%&7/&b%max_players%"
+    - ""
+    - "&fKills: &c%kills%"
+    - "&fWins: &a%wins%"
+    - ""
+    - "&ezelvera.net"
+    - "&7&m----------------"

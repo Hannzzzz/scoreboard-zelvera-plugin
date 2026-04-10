@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -41,10 +42,12 @@ public class ScoreboardManager {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         objective.setDisplayName("§6§lZelvera");
 
-        objective.getScore("§7Welcome to").setScore(3);
-        objective.getScore("§6Zelvera §7Server").setScore(2);
-        objective.getScore("").setScore(1);
-        objective.getScore("§eOnline: §f" + Bukkit.getOnlinePlayers().size()).setScore(0);
+        int score = 3;
+
+        objective.getScore("§7Welcome to").setScore(score--);
+        objective.getScore("§6ZelveraMC Server").setScore(score--);
+        objective.getScore(" ").setScore(score--);
+        objective.getScore("§eOnline: " + Bukkit.getOnlinePlayers().size()).setScore(score--);
 
         player.setScoreboard(scoreboard);
         playerScoreboards.put(player.getUniqueId(), scoreboard);
@@ -56,6 +59,21 @@ public class ScoreboardManager {
             // For now, just refresh
             setScoreboard(player);
         }
+        List<String> lines = plugin.getConfig().getStringList("scoreboard.lines");
+        int score = lines.size();
+        for (String line : lines) {
+            line = line
+                    .replace("%player%", player.getName())
+                    .replace("%map%", "§Arena1")
+                    .replace("%team%", "§TeamA")
+                    ;
+        }
+    }
+
+    private Object getConfig() {
+        // this method should return the plugin's configuration object, 
+        // but since we don't have access to it here, we'll just throw an exception for now
+        throw new UnsupportedOperationException("Unimplemented method 'getConfig'");
     }
 
     public void removeScoreboard(Player player) {
