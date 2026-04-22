@@ -9,6 +9,7 @@ public class ScoreboardPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         getLogger().info("ScoreboardZelvera plugin enabled!");
 
         // Initialize managers
